@@ -1,0 +1,31 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Goath-Stack",
+        "title": "Goath-Stack",
+        "contact": {},
+        "version": "1.0"
+    },
+    "paths": {
+        "/livez": {
+            "get": {
+                "description": "for monitor to check service is activated",
+                "produces": [
+                    "text/plain"
+                ],
+                "tags": [
+                    "system"
+                ],
+                "summary": "Check api server is still responsed",
+                "responses": {
+                    "200": {
+                        "description": "should be 'ok'",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

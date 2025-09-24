@@ -1,0 +1,20 @@
+info:
+  contact: {}
+  description: Goath-Stack
+  title: Goath-Stack
+  version: "1.0"
+paths:
+  /livez:
+    get:
+      description: for monitor to check service is activated
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: should be 'ok'
+          schema:
+            type: string
+      summary: Check api server is still responsed
+      tags:
+      - system
+swagger: "2.0"
