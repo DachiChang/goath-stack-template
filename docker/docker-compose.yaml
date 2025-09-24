@@ -1,0 +1,25 @@
+services:
+  server:
+    image: dachichang/go-toolchain:1.25.1
+    command: ['sh', '-c', 'npm install && go tool air']
+    restart: always
+    volumes:
+      - ../.air.toml:/app/.air.toml
+      - ../Makefile:/app/Makefile
+      - ../package.json:/app/package.json
+      - ../package-lock.json:/app/package-lock.json
+      - ../go.mod:/app/go.mod
+      - ../go.sum:/app/go.sum
+      - ../cmd:/app/cmd
+      - ../docs:/app/docs
+      - ../internal:/app/internal
+      - ../pkg:/app/pkg
+      - ../data:/app/data
+    ports:
+      - 8080:3000
+    env_file:
+      - ../.env
+
+networks:
+  default:
+    name: goath-network
