@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "tailwind": "tailwindcss -i ./internal/interface/web/public/css/input.css -o ./internal/interface/web/public/css/output.css"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.13",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.18",
+    "tailwindcss": "^4.1.13"
+  }
+}
