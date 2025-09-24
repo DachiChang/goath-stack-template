@@ -1,0 +1,52 @@
+package layouts
+
+import (
+	"time"
+	"fmt"
+
+	"github.com/dachichang/goath-stack-template/internal/interface/web/view/components"
+)
+
+templ Base(title string) {
+	<!DOCTYPE html>
+	<html lang="en" class="dark">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<title>{ title }</title>
+			<!--self defined style and script-->
+			<link rel="stylesheet" href={ tailwindcssVersion(time.Now().Unix()) }/>
+			<script src={ jsVersion(time.Now().Unix()) }></script>
+			<!--htmx-->
+			<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+			<!-- alpinejs -->
+			<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+		</head>
+		<body class="dark:text-white dark:bg-gradient-to-r dark:from-[#0D0A0A] dark:to-[#0E172A]">
+			<!--navbar-->
+			@components.Navbar()
+			<!--navbar end-->
+			<div class="pt-14 flex flex-col h-dvh">
+				<div class="grow">
+					<!-- main -->
+					{ children... }
+				</div>
+				<!--footer-->
+				@components.Footer()
+				<!--footer end-->
+			</div>
+			<!--notification here-->
+			<div id="notification-container" class="fixed top-5 right-5 z-50 w-full max-w-lg"></div>
+			<!-- modal here -->
+			<div id="modal-container"></div>
+		</body>
+	</html>
+}
+
+func tailwindcssVersion(v int64) string {
+	return fmt.Sprintf("/assets/css/output.css?v=%d", v)
+}
+
+func jsVersion(v int64) string {
+	return fmt.Sprintf("/assets/js/main.js?v=%d", v)
+}
