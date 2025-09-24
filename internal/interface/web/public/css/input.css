@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* AlpineJS required */
+@layer base {
+  [x-cloak] {
+    display: none !important;
+  }
+}
+
+/* HTMX Indicator required */
+@layer components {
+  .htmx-indicator {
+    display: none;
+  }
+  .htmx-request .htmx-indicator {
+    display: inline;
+  }
+  .htmx-request.htmx-indicator {
+    display: inline;
+  }
+}
