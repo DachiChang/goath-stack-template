@@ -1,5 +1,22 @@
 .DEFAULT_GOAL := up
-.PHONY:	up down log build run clean gen tailwind templ doc
+.PHONY:	init up down log build run clean gen tailwind templ doc
+
+TEMPLATE_FROM := github.com/dachichang/goath-stack-template
+MODULE_NAME := $(shell go list -m)
+UNAME := $(shell uname -s)
+
+ifeq ($(UNAME),Darwin)
+	SED_INPLACE := -i ''
+else
+	SED_INPLACE := -i
+endif
+
+# apply all necessary modifications to the project.
+init:
+	@echo "Replacing $(TEMPLATE_FROM) -> $(MODULE_NAME) in necessary files."
+	@grep -rl $(TEMPLATE_FROM) --include="*.templ" | xargs sed $(SED_INPLACE) -e "s|$(TEMPLATE_FROM)|$(MODULE_NAME)|g"
+	@echo "Create .env from env.example"
+	@cp env.example .env
 
 # run entire goath-stack application at :8080 (docker)
 up:
@@ -35,4 +52,3 @@ templ:
 # build swag docs
 doc:
 	go tool swag init -g cmd/server/main.go
-
