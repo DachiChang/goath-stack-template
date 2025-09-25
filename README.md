@@ -33,9 +33,8 @@ gonew github.com/dachichang/goath-stack-template your-project-name
 
 # Project Initialization
 
-1. Replace all occurrences of `goath-stack-template` in the `templ` import path.
-2. Replace all occurrences of `goath-stack` in the project with your own project name.
-3. Run `cp env.example .env` to create the environment configuration file.
+1. `make init` will init entire project necessary modifies.
+2. Replace the OpenAPI annotations `goath-stack` in the `main.go` with your own project name.
 
 ---
 
