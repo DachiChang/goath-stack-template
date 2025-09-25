@@ -46,10 +46,11 @@ gonew github.com/dachichang/goath-stack-template your-project-name
 - The generated binary will be placed under the `tmp` directory.
 - The default port is `3000`, but you can adjust it in the `.env` file.
 
-## make up / make down
+## make up / make log / make down
 
 - `make up` starts the entire local development environment using **docker compose**.
 - Everything runs fully inside Docker, ensuring a 100% clean environment.
 - When you exit the container, all builds and `node_modules` will not be preserved.
 - The default port is `8080`, but you can adjust it in the `docker-compose.yaml` file.
+- Use `make log` to monitor containers running status and logs.
 - It is recommended to use Docker for development to keep your local system clean.
