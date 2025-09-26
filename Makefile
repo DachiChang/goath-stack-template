@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := up
-.PHONY:	init up down log build run clean gen tailwind templ doc
+.PHONY:	init up down log build docker-image docker-run run clean gen tailwind templ doc
 
 TEMPLATE_FROM := github.com/dachichang/goath-stack-template
 MODULE_NAME := $(shell go list -m)
@@ -31,6 +31,13 @@ log:
 
 build:
 	go build -o goath-stack ./cmd/server/
+
+# run in docker
+docker-image:
+	docker build -t $(MODULE_NAME):latest -f docker/Dockerfile .
+
+docker-run:
+	docker run --rm -it --env-file .env -p 3000:3000 $(MODULE_NAME)
 
 # running information is defined by .env file
 run:
