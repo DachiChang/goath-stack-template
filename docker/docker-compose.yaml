@@ -1,7 +1,7 @@
 services:
   server:
     image: dachichang/go-toolchain:1.25.1
-    command: ['sh', '-c', 'npm install && go tool air']
+    command: ['sh', '-c', 'npm install --verbose && go tool air']
     restart: always
     volumes:
       - ../.air.toml:/app/.air.toml
