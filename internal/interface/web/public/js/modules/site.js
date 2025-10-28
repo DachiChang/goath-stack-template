@@ -1,15 +1,20 @@
-const themeData = () => ({
-  default: 'light',
-  switched: 'dark',
-  theme: localStorage.getItem('theme') || this.default,
-  get themeToggle() {
-    return this.theme === this.switched;
-  },
-  set themeToggle(val) {
-    this.theme = val ? this.switched : this.default;
-    localStorage.setItem('theme', this.theme);
-  },
-});
+const themeData = () => {
+  const defaultTheme = 'light';
+  const switchedTheme = 'dark';
+  const saved = localStorage.getItem('theme') || defaultTheme;
+  return {
+    default: defaultTheme,
+    switched: switchedTheme,
+    theme: saved,
+    get themeToggle() {
+      return this.theme === this.switched;
+    },
+    set themeToggle(val) {
+      this.theme = val ? this.switched : this.default;
+      localStorage.setItem('theme', this.theme);
+    },
+  };
+};
 
 const demoConstructing = () => ({
   fullText: 'Constructing ...',
