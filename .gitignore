@@ -1,3 +1,4 @@
 .env
 tmp
 node_modules
+internal/interface/web/public/css/output.css
