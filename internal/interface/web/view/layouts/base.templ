@@ -9,20 +9,21 @@ import (
 
 templ Base(title string) {
 	<!DOCTYPE html>
-	<html lang="en" class="dark">
+	<html
+        x-data="site.themeData()"
+        x-bind:data-theme="theme"
+		lang="en"
+		class="dark"
+	>
 		<head>
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<title>{ title }</title>
 			<!--self defined style and script-->
 			<link rel="stylesheet" href={ tailwindcssVersion(time.Now().Unix()) }/>
-			<script src={ jsVersion(time.Now().Unix()) }></script>
-			<!--htmx-->
-			<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
-			<!-- alpinejs -->
-			<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+			<script type="module" src={ jsVersion(time.Now().Unix()) }></script>
 		</head>
-		<body class="dark:text-white dark:bg-gradient-to-r dark:from-[#0D0A0A] dark:to-[#0E172A]">
+		<body>
 			<!--navbar-->
 			@components.Navbar()
 			<!--navbar end-->
