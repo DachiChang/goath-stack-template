@@ -1,8 +1,8 @@
 @import 'tailwindcss';
-@plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
-
-@custom-variant dark (&:where(.dark, .dark *));
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, nord, night, synthwave; /* 預設只有 light, dark */
+}
 
 /* AlpineJS required */
 @layer base {
