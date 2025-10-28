@@ -11,6 +11,7 @@ Simply replace `goath-stack` with your own project name, and you’re ready to g
 
 - 🚀 **Golang + Templ**: Type-safe template engine with enhanced HTML componentization.
 - 🎨 **TailwindCSS v4**: A utility-first and elegant CSS framework.
+- 🌈 **DaisyUI**: A beautiful, themeable component library built on top of TailwindCSS.
 - ⚡ **Alpine.js**: Lightweight JavaScript for interactivity.
 - 🔗 **HTMX**: Build interactive frontends with minimal JavaScript.
 - 🐳 **Docker Support**: Works for both local development and containerized environments.
