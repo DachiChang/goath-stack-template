@@ -19,15 +19,16 @@ templ Base(title string) {
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<title>{ title }</title>
-			<!--self defined style and script-->
+			<!-- Tailwind CSS -->
 			<link rel="stylesheet" href={ tailwindcssVersion(time.Now().Unix()) }/>
+			<!-- JS 模組 -->
 			<script type="module" src={ jsVersion(time.Now().Unix()) }></script>
 		</head>
 		<body>
 			<!--navbar-->
 			@components.Navbar()
 			<!--navbar end-->
-			<div class="pt-14 flex flex-col h-dvh">
+			<div class="flex flex-col h-[calc(100dvh-4rem)]">
 				<div class="grow">
 					<!-- main -->
 					{ children... }
